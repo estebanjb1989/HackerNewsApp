@@ -8,13 +8,14 @@ import {
 } from 'react-native';
 import notifee, { AuthorizationStatus }  from '@notifee/react-native';
 import { Title } from "@component/Title"
-import { useNavigation } from '@react-navigation/native';
+import { DrawerNavigationProp } from "@react-navigation/drawer";
+import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
 import { setNotificationsEnabled } from '@store/slices/settings';
 import { setNotificationsPermissionStatus } from '@store/slices/permissions';
 
 function NotificationPermission() {
-    const navigation = useNavigation()
+    const navigation = useNavigation<DrawerNavigationProp<ParamListBase>>()
     const dispatch = useDispatch()
 
     const handleContinue = async () => {        
@@ -26,7 +27,7 @@ function NotificationPermission() {
                 dispatch(setNotificationsEnabled(true))
                 navigation.navigate("App")
             } else if (status === AuthorizationStatus.DENIED) {
-                Alert.alert("Alert", "Permissions have been denied several times, please enable them through your OS settings")                
+                Alert.alert("Alert", "Permissions have been denied, please try again or enable them in the OS settings")                
                 dispatch(setNotificationsEnabled(false))
                 console.log('Notification permission is denied');
             }            

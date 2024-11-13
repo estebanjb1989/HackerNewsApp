@@ -77,9 +77,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.attainchallengebare"
+    namespace "com.hackernews.app"
     defaultConfig {
-        applicationId "com.attainchallengebare"
+        applicationId "com.hackernews.app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

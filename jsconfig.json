@@ -17,6 +17,9 @@
       "component/*": [
         "./src/component/*"
       ],
+      "lib/*": [
+        "./src/lib/*"
+      ],
     }
   }
 }

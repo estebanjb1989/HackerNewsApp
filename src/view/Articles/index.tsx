@@ -7,32 +7,31 @@ import {
   TouchableOpacity,
   Text,
   TextInput,
-  RefreshControl
+  RefreshControl,
 } from 'react-native';
 import { throttle } from 'lodash';
-import ListItem from "./ListItem"
-import _ from "lodash"
+import ListItem from './ListItem';
+import _ from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
 import { useIsConnected } from 'react-native-offline';
 import { Swipeable } from 'react-native-gesture-handler';
-import { IState, IArticle } from "@interfaces"
-import Title from "@component/Title"
-import Spacer from "@component/Spacer"
+import { IState, IArticle } from '@interfaces';
+import Title from '@component/Title';
+import Spacer from '@component/Spacer';
 import {
   setArticles,
   deleteArticle,
   addToFavorites,
   removeFromFavorites,
   fetchArticles,
-  setQuery
+  setQuery,
 } from '@store/slices/articles';
-import DeleteIcon from "@img/icons/delete.png"
 
-const Separator = () => <View style={{ height: 10 }} />;
+const Separator = () => <View style={styles.separator} />;
 
 function Articles() {
-  const isConnected = useIsConnected()
-  const dispatch = useDispatch()
+  const isConnected = useIsConnected();
+  const dispatch = useDispatch();
   const [
     articles,
     deletedArticles,
@@ -42,38 +41,38 @@ function Articles() {
     state.articles.articles,
     state.articles.deletedArticles,
     state.articles.favoriteArticles,
-    state.articles.loading
-  ])
+    state.articles.loading,
+  ]);
 
   const articlesMemo = useMemo(() => {
-    return articles?.filter?.((article: IArticle) => 
-      !deletedArticles?.some((da: string) => da === article.id))
-  }, [articles, deletedArticles])
+    return articles?.filter?.((article: IArticle) =>
+      !deletedArticles?.some((da: string) => da === article.id));
+  }, [articles, deletedArticles]);
 
   const onRefresh = useCallback(async () => {
-    if (!isConnected) return
-    const data = await dispatch(fetchArticles())
-    dispatch(setArticles(data?.payload))
-  }, [isConnected])
+    if (!isConnected) {return;}
+    const data = await dispatch(fetchArticles());
+    dispatch(setArticles(data?.payload));
+  }, [dispatch, isConnected]);
 
   useEffect(() => {
-    onRefresh()
-  }, [isConnected])
+    onRefresh();
+  }, [onRefresh, isConnected]);
 
   const handleItemDelete = (id: string) => () => {
-    dispatch(deleteArticle(id))
-  }
+    dispatch(deleteArticle(id));
+  };
 
   const handleItemLongPress = useCallback((id: string) => () => {
     if (favoriteArticles?.some((fa: string) => fa === id)) {
-      dispatch(removeFromFavorites(id))
+      dispatch(removeFromFavorites(id));
     } else {
-      dispatch(addToFavorites(id))
+      dispatch(addToFavorites(id));
     }
-  }, [favoriteArticles])
+  }, [dispatch, favoriteArticles]);
 
   const handleTextInput = (text: string) => {
-    dispatch(setQuery(text))
+    dispatch(setQuery(text));
   };
 
   const throttledHandleTextInput = throttle(handleTextInput, 2000);
@@ -85,7 +84,7 @@ function Articles() {
         testID="articles_text-input"
         onChangeText={(text) => throttledHandleTextInput(text)}
         style={styles.textInput}
-        placeholder='Search by topic... (iOS, Android, etc.)'
+        placeholder="Search by topic... (iOS, Android, etc.)"
         placeholderTextColor="grey"
         onSubmitEditing={onRefresh}
       />
@@ -128,24 +127,27 @@ function Articles() {
 
 const styles = StyleSheet.create({
   textInput: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     marginBottom: 12,
     marginHorizontal: 12,
-    color: "black"
+    color: 'black',
+    height: 44,
+    padding: 8,
   },
   deleteButton: {
-    backgroundColor: "red",
+    backgroundColor: 'red',
     width: 80,
-    height: "100%",
-    justifyContent: "center",
-    alignItems: "center",
-    marginLeft: -8
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: -8,
   },
   deleteButtonText: {
-    textAlign: "center",
+    textAlign: 'center',
     width: 80,
-    color: "white"
-  }
+    color: 'white',
+  },
+  separator: { height: 10 },
 });
 
 export default Articles;

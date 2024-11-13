@@ -4,15 +4,15 @@ import {
     StyleSheet,
     Switch,
     View,
-    Text
+    Text,
 } from 'react-native';
-import Title from "@component/Title"
+import Title from '@component/Title';
 import { useDispatch, useSelector } from 'react-redux';
 import { setNotificationsEnabled } from '@store/slices/settings';
 
 function Settings() {
-    const dispatch = useDispatch()
-    const notificationsEnabled = useSelector(state => state.settings.notificationsEnabled)
+    const dispatch = useDispatch();
+    const notificationsEnabled = useSelector(state => state.settings.notificationsEnabled);
 
     const handleToggle = () => {
         dispatch(setNotificationsEnabled(!notificationsEnabled));
@@ -38,13 +38,15 @@ function Settings() {
 
 const styles = StyleSheet.create({
     optionContainer: {
-        flexDirection: "row",
-        alignItems: "center",        
-        paddingHorizontal: 4
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingHorizontal: 12,
+        marginTop: 8,
     },
     optionText: {
-        width: 240
-    }
+        width: 240,
+        marginLeft: 12,
+    },
 });
 
 export default Settings;

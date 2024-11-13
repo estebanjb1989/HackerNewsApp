@@ -5,28 +5,28 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-import ListItem from "@view/Articles/ListItem"
-import Title from "@component/Title"
-import _ from "lodash"
+import ListItem from '@view/Articles/ListItem';
+import Title from '@component/Title';
+import _ from 'lodash';
 import { IArticle, IState } from '@interfaces';
 import { useSelector } from 'react-redux';
 
 const Separator = () => <View style={{ height: 10 }} />;
 
-function Deleted() {  
+function Deleted() {
   const [
     articles,
-    deletedArticles,    
+    deletedArticles,
   ] = useSelector((state: IState) => [
     state.articles.articles,
-    state.articles.deletedArticles,    
-  ])
+    state.articles.deletedArticles,
+  ]);
 
   const articlesMemo = useMemo(() => {
     return articles.filter((article: IArticle) =>
       deletedArticles?.some((da: IArticle) => da === article.id)
-    )
-  }, [articles, deletedArticles])
+    );
+  }, [articles, deletedArticles]);
 
 
   return (
@@ -41,7 +41,6 @@ function Deleted() {
           <ListItem
             key={item.title}
             item={item}
-            isFavorite={true}
           />
         )}
         ItemSeparatorComponent={Separator}
@@ -53,7 +52,7 @@ function Deleted() {
 
 const styles = StyleSheet.create({
   flatList: {
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
 });
 

@@ -4,33 +4,14 @@ import {
   Text,
   View,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  Platform,
 } from 'react-native';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
-import { DrawerNavigationProp } from "@react-navigation/drawer";
-import { IArticle, IStory } from '@interfaces';
-import FavoriteIcon from "@img/icons/favorite.png"
-
-export const getTimeAgoFromTS = (timestamp: number) => {
-  const now = new Date();
-  const diff = now.getTime() - timestamp;
-  const seconds = Math.floor(diff / 1000);
-  const minutes = Math.floor(seconds / 60);
-  const hours = Math.floor(minutes / 60);
-  const days = Math.floor(hours / 24);
-
-  if (days > 0) {
-    return `${days} ${days === 1 ? 'day' : 'days'} ago`;
-  } else if (hours > 0) {
-    return `${hours} ${hours === 1 ? 'hour' : 'hours'} ago`;
-  } else if (minutes > 0) {
-    return `${minutes} ${minutes === 1 ? 'minute' : 'minutes'} ago`;
-  } else if (seconds > 60) {
-    return `${Math.floor(seconds / 60)} ${seconds % 60} minutes ago`;
-  } else {
-    return `${seconds} seconds ago`;
-  }
-}
+import { DrawerNavigationProp } from '@react-navigation/drawer';
+import { IArticle } from '@interfaces';
+import FavoriteIcon from '@img/icons/favorite.png';
+import { openLink, getTimeAgoFromTS } from '../../lib';
 
 interface IListItemProps {
   item: IArticle;
@@ -41,16 +22,15 @@ interface IListItemProps {
 function ListItem({
   item,
   onLongPress,
-  isFavorite
+  isFavorite,
 }: IListItemProps): React.JSX.Element {
-  const navigation = useNavigation<DrawerNavigationProp<ParamListBase>>()
-  
+  const navigation = useNavigation<DrawerNavigationProp<ParamListBase>>();
 
-  const handlePress = () => navigation.navigate("Article",
+  const handlePress = () => Platform.OS === 'ios' ? openLink(item.url) : navigation.navigate('Article',
     { url: item.url, title: item.title }
-  )
+  );
 
-  const timeAgo = getTimeAgoFromTS(new Date(item.createdAt).getTime())
+  const timeAgo = getTimeAgoFromTS(new Date(item.createdAt).getTime());
 
   return (
     <TouchableOpacity
@@ -62,7 +42,7 @@ function ListItem({
         <View style={styles.infoContainer}>
           <View style={styles.infoTopContainer}>
             {isFavorite ? (
-              <Image source={FavoriteIcon} style={styles.favoriteIcon}></Image>
+              <Image source={FavoriteIcon} style={styles.favoriteIcon} />
             ) : null}
           </View>
           <Text>{item.title}</Text>
@@ -75,33 +55,33 @@ function ListItem({
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
+    flexDirection: 'row',
     padding: 12,
     gap: 12,
-    alignItems: "center",
-    borderWidth: .5,
-    borderStyle: "solid",
-    borderColor: "grey",
+    alignItems: 'center',
+    borderWidth: 0.5,
+    borderStyle: 'solid',
+    borderColor: 'grey',
     marginHorizontal: 8,
   },
   infoTopContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between"
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   infoContainer: {
-    flex: 1
+    flex: 1,
   },
   favoriteIcon: {
-    width: 24, 
+    width: 24,
     height: 24,
-    position: "absolute",
+    position: 'absolute',
     right: -12,
     top: -12,
   },
   authorText: {
     marginTop: 8,
-    color: "grey"
-  }
+    color: 'grey',
+  },
 });
 
 export default ListItem;

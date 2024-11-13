@@ -1,58 +1,43 @@
 
 # HackerNewsApp
 
-This is a React Native web enabled implementation for a TodoList app
-
-
 ## Run Locally
-
-Clone the project
-
-```bash
-  git clone https://github.com/estebanjb1989/todoapp
-```
 
 Go to the project directory
 
 ```bash
-  cd todoapp
+  cd hacker-news-app
 ```
 
 Install dependencies
 
 ```bash
-  npm install
-```
-or
-```bash
   yarn
 ```
 
-### Run for web browser
+Run for Android
+- Make sure you have connected your Android device via and
+have USB debugging enabled in the developer settings of the device.
 
 ```bash
-  npm run web
+  yarn android
 ```
 
-### Run with npm/expo scripts
-- Make sure you have your device connected to your computer
-- If you are using simulators make sure they are running before executing the npm command
-```bash
-  npm run android
-```
+Run for iOS
+- Make sure you have connected your iOS device or you have the 
+simulator running.
+- I recommend to build from XCode the first time
 
 ```bash
-  npm run iOS
+  yarn ios
 ```
 
-### Run Scanning QR
-Start the server for Android/iOS
-- Make sure PC and device are connected to the same network
+Run unit tests
+
+- Make sure you are in the project directory and run
 
 ```bash
-  npm run start
+  yarn test
 ```
-- Scan QR from terminal using expo cli app in the device
-
 
 

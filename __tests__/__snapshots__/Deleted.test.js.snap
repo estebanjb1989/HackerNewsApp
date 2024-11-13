@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deleted Articles view renders correctly 1`] = `
+<RCTSafeAreaView>
+  <Text
+    style={
+      [
+        {
+          "fontSize": 20,
+          "marginHorizontal": 8,
+          "marginVertical": 8,
+          "minWidth": 240,
+        },
+        undefined,
+      ]
+    }
+  >
+    Deleted Articles
+  </Text>
+  <RCTScrollView
+    ItemSeparatorComponent={[Function]}
+    data={
+      [
+        {
+          "author": "author1",
+          "id": "1111111111",
+          "title": "article1",
+          "url": "www.google.com",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={[]}
+    style={
+      {
+        "backgroundColor": "white",
+      }
+    }
+    viewabilityConfigCallbackPairs={[]}
+    windowSize={10}
+  >
+    <View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "alignItems": "center",
+                "borderColor": "grey",
+                "borderRadius": 6,
+                "borderStyle": "solid",
+                "borderWidth": 0.5,
+                "flexDirection": "row",
+                "gap": 12,
+                "marginHorizontal": 8,
+                "padding": 12,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flex": 1,
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                  }
+                }
+              >
+                <Text>
+                  Invalid Date
+                </Text>
+                <Image
+                  source={
+                    {
+                      "testUri": "../../../src/img/icons/favorite.png",
+                    }
+                  }
+                  style={
+                    {
+                      "height": 32,
+                      "width": 32,
+                    }
+                  }
+                />
+              </View>
+              <Text>
+                article1
+              </Text>
+              <Text
+                testID="list-item_author"
+              >
+                author1
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</RCTSafeAreaView>
+`;

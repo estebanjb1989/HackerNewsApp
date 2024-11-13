@@ -1,0 +1,38 @@
+buildscript {
+    ext {
+        buildToolsVersion = "35.0.0"
+        minSdkVersion = 24
+        compileSdkVersion = 35
+        targetSdkVersion = 34
+        androidXAnnotation = "1.2.0"
+        androidXBrowser = "1.3.0"
+        ndkVersion = "26.1.10909125"
+        kotlinVersion = "1.9.24"
+
+        useExoplayerIMA = true
+        useExoplayerRtsp = true
+        useExoplayerSmoothStreaming = true
+        useExoplayerDash = true
+        useExoplayerHls = true
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle")
+        classpath("com.facebook.react:react-native-gradle-plugin")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+    }
+}
+
+allprojects {
+     repositories {
+        maven {
+           // react-native-background-fetch
+           url("${project(':react-native-background-fetch').projectDir}/libs")
+        }
+    }
+}
+
+apply plugin: "com.facebook.react.rootproject"

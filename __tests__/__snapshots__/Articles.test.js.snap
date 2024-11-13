@@ -1,0 +1,240 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main Articles view renders correctly 1`] = `
+<RCTSafeAreaView>
+  <Text
+    style={
+      [
+        {
+          "fontSize": 20,
+          "marginHorizontal": 8,
+          "marginVertical": 8,
+          "minWidth": 240,
+        },
+        undefined,
+      ]
+    }
+  >
+    Home
+  </Text>
+  <TextInput
+    onChangeText={[Function]}
+    onSubmitEditing={[Function]}
+    placeholder="Search by topic... (iOS, Android, etc.)"
+    placeholderTextColor="grey"
+    style={
+      {
+        "backgroundColor": "white",
+        "color": "black",
+        "marginBottom": 12,
+        "marginHorizontal": 12,
+      }
+    }
+    testID="articles_text-input"
+  />
+  <RCTScrollView
+    ItemSeparatorComponent={[Function]}
+    ListFooterComponent={
+      <Spacer
+        height={120}
+      />
+    }
+    data={
+      [
+        {
+          "author": "author1",
+          "id": "1111111111",
+        },
+        {
+          "author": "author2",
+          "id": "2222222222",
+        },
+        {
+          "author": "author3",
+          "id": "3333333333",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <RefreshControlMock
+        onRefresh={[Function]}
+      />
+    }
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={[]}
+    testID="articles_flat-list"
+    viewabilityConfigCallbackPairs={[]}
+    windowSize={10}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "opacity": 1,
+            }
+          }
+          testID="list-item_pressable"
+        >
+          title
+        </View>
+        <View
+          style={
+            {
+              "height": 10,
+            }
+          }
+        />
+      </View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "opacity": 1,
+            }
+          }
+          testID="list-item_pressable"
+        >
+          title
+        </View>
+        <View
+          style={
+            {
+              "height": 10,
+            }
+          }
+        />
+      </View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "opacity": 1,
+            }
+          }
+          testID="list-item_pressable"
+        >
+          title
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+      >
+        <View
+          style={
+            {
+              "height": 120,
+            }
+          }
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+</RCTSafeAreaView>
+`;
